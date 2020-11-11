@@ -35,7 +35,8 @@ Grafana Dashboard for OPNsense and the Plugin Sensei
 					Time field name : @timestamp
 					Version : 7.0+
 					
-					You can use the Name you want and filter it in the dashboard your import, in the Settings -> Variables -> Elasticsearch -> Adn modify the "Instance name filter" for exemple here for matching suricata : /.*Suricata.*/
+					You can use the Name you want and filter it in the dashboard your import, in the Settings -> Variables -> Elasticsearch
+					-> Adn modify the "Instance name filter" for exemple here for matching suricata : /.*Suricata.*/
 
 Dashboard :
 	InfluxDB : OPNSense - Firewall
