@@ -1,0 +1,1116 @@
+{
+  "__inputs": [
+    {
+      "name": "DS_INFLUXDB",
+      "label": "InfluxDB",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "influxdb",
+      "pluginName": "InfluxDB"
+    }
+  ],
+  "__requires": [
+    {
+      "type": "datasource",
+      "id": "elasticsearch",
+      "name": "Elasticsearch",
+      "version": "1.0.0"
+    },
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "7.2.1"
+    },
+    {
+      "type": "panel",
+      "id": "grafana-piechart-panel",
+      "name": "Pie Chart",
+      "version": "1.3.9"
+    },
+    {
+      "type": "panel",
+      "id": "graph",
+      "name": "Graph",
+      "version": ""
+    },
+    {
+      "type": "datasource",
+      "id": "influxdb",
+      "name": "InfluxDB",
+      "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "magnesium-wordcloud-panel",
+      "name": "Word cloud",
+      "version": "1.1.3"
+    },
+    {
+      "type": "panel",
+      "id": "table",
+      "name": "Table",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "text",
+      "name": "Text",
+      "version": "7.1.0"
+    }
+  ],
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": null,
+  "iteration": 1605082279254,
+  "links": [],
+  "panels": [
+    {
+      "datasource": "${DS_INFLUXDB}",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 0
+      },
+      "id": 90,
+      "options": {
+        "content": "<img src=\"https://raw.githubusercontent.com/opnsense/docs/master/source/images/opnsense_logo-zilver_grijs.png\" width: 100% height: auto; >       ",
+        "mode": "html"
+      },
+      "pluginVersion": "7.1.0",
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": "${DS_INFLUXDB}",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 7,
+        "x": 17,
+        "y": 0
+      },
+      "id": 92,
+      "options": {
+        "content": "<img src=\"https://www.sunnyvalley.io/wp-content/uploads/2020/01/logo-white.png\" width: 100% height: auto; >      ",
+        "mode": "html"
+      },
+      "pluginVersion": "7.1.0",
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "type": "text"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "$elasticsearch",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "left",
+            "filterable": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "string"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 13,
+        "w": 12,
+        "x": 0,
+        "y": 4
+      },
+      "id": 87,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 3,
+      "options": {
+        "showHeader": true
+      },
+      "pluginVersion": "7.2.1",
+      "repeatDirection": "h",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "$$hashKey": "object:1278",
+              "fake": true,
+              "field": "query.keyword",
+              "id": "9",
+              "settings": {
+                "min_doc_count": 0,
+                "order": "desc",
+                "orderBy": "_count",
+                "size": "10"
+              },
+              "type": "terms"
+            }
+          ],
+          "hide": false,
+          "metrics": [
+            {
+              "$$hashKey": "object:3640",
+              "field": "query",
+              "id": "6",
+              "meta": {},
+              "settings": {},
+              "type": "count"
+            }
+          ],
+          "query": "_type:dns",
+          "refId": "A",
+          "timeField": "start_time"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "DNS Queries Distribution",
+      "type": "table"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "$elasticsearch",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "left",
+            "filterable": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "string"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 13,
+        "w": 12,
+        "x": 12,
+        "y": 4
+      },
+      "id": 72,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 3,
+      "options": {
+        "datasource_count_field": "Count",
+        "datasource_tags_field": "qtype.keyword",
+        "series_index": 0,
+        "wordCloudOptions": {
+          "deterministic": true,
+          "enableTooltip": true,
+          "fontFamily": "arial",
+          "fontSizes": [
+            15,
+            80
+          ],
+          "padding": 1,
+          "rotationAngles": [
+            0,
+            0
+          ],
+          "rotations": 2,
+          "scale": "sqrt",
+          "spiral": "archimedean",
+          "transitionDuration": 800
+        }
+      },
+      "pluginVersion": "7.2.1",
+      "repeatDirection": "h",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "$$hashKey": "object:1666",
+              "fake": true,
+              "field": "qtype.keyword",
+              "id": "6",
+              "settings": {
+                "min_doc_count": "1",
+                "order": "desc",
+                "orderBy": "_count",
+                "size": "5"
+              },
+              "type": "terms"
+            }
+          ],
+          "hide": false,
+          "metrics": [
+            {
+              "$$hashKey": "object:1375",
+              "field": "qtype",
+              "id": "1",
+              "meta": {},
+              "settings": {},
+              "type": "count"
+            }
+          ],
+          "query": "_type:dns",
+          "refId": "A",
+          "timeField": "start_time"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "DNS Query Types Tag Cloud",
+      "type": "magnesium-wordcloud-panel"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "$elasticsearch",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "left",
+            "filterable": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "string"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 13,
+        "w": 12,
+        "x": 0,
+        "y": 17
+      },
+      "id": 88,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 3,
+      "options": {
+        "datasource_count_field": "Count",
+        "datasource_tags_field": "is_AA",
+        "series_index": 0,
+        "wordCloudOptions": {
+          "deterministic": true,
+          "enableTooltip": true,
+          "fontFamily": "arial",
+          "fontSizes": [
+            15,
+            80
+          ],
+          "padding": 1,
+          "rotationAngles": [
+            0,
+            0
+          ],
+          "rotations": 2,
+          "scale": "sqrt",
+          "spiral": "archimedean",
+          "transitionDuration": 800
+        }
+      },
+      "pluginVersion": "7.2.1",
+      "repeatDirection": "h",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "$$hashKey": "object:1666",
+              "fake": true,
+              "field": "is_AA",
+              "id": "6",
+              "settings": {
+                "min_doc_count": "0",
+                "order": "desc",
+                "orderBy": "_count",
+                "size": "5"
+              },
+              "type": "terms"
+            }
+          ],
+          "hide": false,
+          "metrics": [
+            {
+              "$$hashKey": "object:1375",
+              "field": "qtype",
+              "id": "1",
+              "meta": {},
+              "settings": {},
+              "type": "count"
+            }
+          ],
+          "query": "_type:dns",
+          "refId": "A",
+          "timeField": "start_time"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "DNS Query Types Tag Cloud",
+      "type": "magnesium-wordcloud-panel"
+    },
+    {
+      "aliasColors": {},
+      "bars": true,
+      "cacheTimeout": null,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "$elasticsearch",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "left",
+            "filterable": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "string"
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 13,
+        "w": 12,
+        "x": 12,
+        "y": 17
+      },
+      "hiddenSeries": false,
+      "id": 44,
+      "interval": null,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "lines": false,
+      "linewidth": 1,
+      "links": [],
+      "maxDataPoints": 3,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": false
+      },
+      "percentage": false,
+      "pluginVersion": "7.2.1",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "repeatDirection": "h",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:3415"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "$$hashKey": "object:3649",
+              "fake": true,
+              "field": "ip_src_saddr.keyword",
+              "id": "7",
+              "settings": {
+                "min_doc_count": "1",
+                "order": "desc",
+                "orderBy": "6",
+                "size": "10"
+              },
+              "type": "terms"
+            },
+            {
+              "$$hashKey": "object:3206",
+              "fake": true,
+              "field": "start_time",
+              "id": "5",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": 0,
+                "trimEdges": 0
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "hide": false,
+          "metrics": [
+            {
+              "$$hashKey": "object:3640",
+              "field": "dst_hostname.keyword",
+              "id": "6",
+              "meta": {},
+              "settings": {},
+              "type": "cardinality"
+            }
+          ],
+          "query": "_type:dns",
+          "refId": "A",
+          "timeField": "start_time"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "DNS Transactions Heatmap",
+      "tooltip": {
+        "shared": false,
+        "sort": 2,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "series",
+        "name": null,
+        "show": true,
+        "values": [
+          "total"
+        ]
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:3044",
+          "format": "string",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:3045",
+          "format": "string",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "",
+        "threshold": ""
+      },
+      "datasource": "$elasticsearch",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "left",
+            "filterable": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "string"
+        },
+        "overrides": []
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 13,
+        "w": 12,
+        "x": 0,
+        "y": 30
+      },
+      "id": 74,
+      "interval": null,
+      "legend": {
+        "percentage": true,
+        "show": true,
+        "sideWidth": null,
+        "values": false
+      },
+      "legendType": "Right side",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 12,
+      "nullPointMode": "connected",
+      "pieType": "donut",
+      "pluginVersion": "7.2.1",
+      "repeatDirection": "h",
+      "strokeWidth": "1",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "$$hashKey": "object:1377",
+              "fake": true,
+              "field": "src_username.keyword",
+              "id": "4",
+              "settings": {
+                "min_doc_count": "1",
+                "missing": null,
+                "order": "desc",
+                "orderBy": "_term",
+                "size": "10"
+              },
+              "type": "terms"
+            },
+            {
+              "$$hashKey": "object:1378",
+              "fake": true,
+              "field": "start_time",
+              "id": "3",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": 0,
+                "trimEdges": 0
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "hide": false,
+          "metrics": [
+            {
+              "$$hashKey": "object:1375",
+              "field": "even",
+              "id": "1",
+              "meta": {},
+              "settings": {},
+              "type": "count"
+            }
+          ],
+          "query": "_type:dns",
+          "refId": "A",
+          "timeField": "start_time"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "DNS - Top Egress Users",
+      "type": "grafana-piechart-panel",
+      "valueName": "total"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "",
+        "threshold": ""
+      },
+      "datasource": "$elasticsearch",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "left",
+            "filterable": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "string"
+        },
+        "overrides": []
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 13,
+        "w": 12,
+        "x": 12,
+        "y": 30
+      },
+      "id": 85,
+      "interval": null,
+      "legend": {
+        "percentage": true,
+        "show": true,
+        "sideWidth": null,
+        "values": false
+      },
+      "legendType": "Right side",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 12,
+      "nullPointMode": "connected",
+      "pieType": "donut",
+      "pluginVersion": "7.2.1",
+      "repeatDirection": "h",
+      "strokeWidth": "1",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "$$hashKey": "object:1377",
+              "fake": true,
+              "field": "dst_username.keyword",
+              "id": "4",
+              "settings": {
+                "min_doc_count": "1",
+                "missing": null,
+                "order": "desc",
+                "orderBy": "_term",
+                "size": "10"
+              },
+              "type": "terms"
+            },
+            {
+              "$$hashKey": "object:1378",
+              "fake": true,
+              "field": "start_time",
+              "id": "3",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": 0,
+                "trimEdges": 0
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "hide": false,
+          "metrics": [
+            {
+              "$$hashKey": "object:1375",
+              "field": "even",
+              "id": "1",
+              "meta": {},
+              "settings": {},
+              "type": "count"
+            }
+          ],
+          "query": "_type:dns",
+          "refId": "A",
+          "timeField": "start_time"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "DNS - Top Egress Users",
+      "type": "grafana-piechart-panel",
+      "valueName": "total"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "",
+        "threshold": ""
+      },
+      "datasource": "$elasticsearch",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "left",
+            "filterable": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "string"
+        },
+        "overrides": []
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 13,
+        "w": 12,
+        "x": 0,
+        "y": 43
+      },
+      "id": 78,
+      "interval": null,
+      "legend": {
+        "percentage": true,
+        "show": true,
+        "sideWidth": null,
+        "values": false
+      },
+      "legendType": "Right side",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 12,
+      "nullPointMode": "connected",
+      "pieType": "donut",
+      "pluginVersion": "7.2.1",
+      "repeatDirection": "h",
+      "strokeWidth": "1",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "$$hashKey": "object:2196",
+              "fake": true,
+              "field": "vlanid",
+              "id": "5",
+              "settings": {
+                "min_doc_count": 0,
+                "order": "desc",
+                "orderBy": "_term",
+                "size": "10"
+              },
+              "type": "terms"
+            },
+            {
+              "$$hashKey": "object:1377",
+              "fake": true,
+              "field": "interface.keyword",
+              "id": "4",
+              "settings": {
+                "min_doc_count": "1",
+                "missing": null,
+                "order": "desc",
+                "orderBy": "_count",
+                "size": "10"
+              },
+              "type": "terms"
+            },
+            {
+              "$$hashKey": "object:1378",
+              "fake": true,
+              "field": "start_time",
+              "id": "3",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": 0,
+                "trimEdges": 0
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "hide": false,
+          "metrics": [
+            {
+              "$$hashKey": "object:1375",
+              "field": "even",
+              "id": "1",
+              "meta": {},
+              "settings": {},
+              "type": "count"
+            }
+          ],
+          "query": "_type:dns",
+          "refId": "A",
+          "timeField": "start_time"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "DNS - Interfaces & Vlans",
+      "type": "grafana-piechart-panel",
+      "valueName": "total"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "",
+        "threshold": ""
+      },
+      "datasource": "$elasticsearch",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "left",
+            "filterable": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "string"
+        },
+        "overrides": []
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 13,
+        "w": 12,
+        "x": 12,
+        "y": 43
+      },
+      "id": 80,
+      "interval": null,
+      "legend": {
+        "percentage": true,
+        "show": true,
+        "sideWidth": null,
+        "values": false
+      },
+      "legendType": "Right side",
+      "links": [],
+      "maxDataPoints": 3,
+      "maxPerRow": 12,
+      "nullPointMode": "connected",
+      "pieType": "donut",
+      "pluginVersion": "7.2.1",
+      "repeatDirection": "h",
+      "strokeWidth": "1",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "$$hashKey": "object:2196",
+              "fake": true,
+              "field": "policy.keyword",
+              "id": "5",
+              "settings": {
+                "min_doc_count": "1",
+                "missing": "Default",
+                "order": "desc",
+                "orderBy": "_term",
+                "size": "10"
+              },
+              "type": "terms"
+            },
+            {
+              "$$hashKey": "object:1378",
+              "fake": true,
+              "field": "start_time",
+              "id": "3",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": 0,
+                "trimEdges": 0
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "hide": false,
+          "metrics": [
+            {
+              "$$hashKey": "object:1375",
+              "field": "even",
+              "id": "1",
+              "meta": {},
+              "settings": {},
+              "type": "count"
+            }
+          ],
+          "query": "_type:dns",
+          "refId": "A",
+          "timeField": "start_time"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "DNS Policies",
+      "type": "grafana-piechart-panel",
+      "valueName": "total"
+    }
+  ],
+  "refresh": false,
+  "schemaVersion": 26,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": false,
+          "text": "Elasticsearch-Sensei",
+          "value": "Elasticsearch-Sensei"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": null,
+        "multi": false,
+        "name": "elasticsearch",
+        "options": [],
+        "query": "elasticsearch",
+        "queryValue": "",
+        "refresh": 1,
+        "regex": "/Sensei/",
+        "skipUrlSync": false,
+        "type": "datasource"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-24h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Sensei: DNS",
+  "uid": "Hc1eZH2Gk",
+  "version": 10
+}
