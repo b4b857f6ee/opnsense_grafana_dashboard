@@ -17,12 +17,13 @@ Grafana Dashboard for OPNsense and the Plugin Sensei
 - Configure the Datasource for InfluxDB
 - Configuration of the pfelk Elasticsearch
 	Datasources :
+					
 					Name : Elasticsearch-Firewall
 					URL : yourELKIP:9200
 					Index name : pfelk-firewall*
 					Time field name : @timestamp
 					Version : 7.0+
-					
+				
 					Name : Elasticsearch-Suricata
 					URL : yourELKIP:9200
 					Index name : pfelk-suricata*
@@ -37,6 +38,8 @@ Grafana Dashboard for OPNsense and the Plugin Sensei
 					
 					You can use the Name you want and filter it in the dashboard your import, in the Settings -> Variables -> Elasticsearch
 					-> Adn modify the "Instance name filter" for exemple here for matching suricata : /.*Suricata.*/
+					
+					
 
 Dashboard :
 	InfluxDB : OPNSense - Firewall
