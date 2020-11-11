@@ -72,7 +72,7 @@ Configure Sensei by using external ELK (like the one you have previously install
 
 
 
-# OPNSense_Firewall
+# OPNSense Firewall
 ![alt text](https://github.com/b4b857f6ee/opnsense_grafana_dashboard/blob/main/images/OPNSense_Firewall1.PNG?raw=true)
 
 # OPNSense Firewall Dashboard
