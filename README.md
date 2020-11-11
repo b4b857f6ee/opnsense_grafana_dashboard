@@ -58,6 +58,20 @@ Configure Sensei by using external ELK (like the one you have previously install
 					Time field name : start_time
 					Version : 7.0+ Or 5.6+(for Internal OPNsense Sensei ELK)
 
+# Grafana dashboard on grafana.com
+
+OPNSense_Firewall : https://grafana.com/grafana/dashboards/13386
+OPNSense Firewall Dashboard : https://grafana.com/grafana/dashboards/13383
+OPNSense Firewall Suricata : https://grafana.com/grafana/dashboards/13384
+OPNSense Firewall Unbound : https://grafana.com/grafana/dashboards/13385
+OPNSense Sensei Block : https://grafana.com/grafana/dashboards/13387
+OPNSense Sensei DNS : https://grafana.com/grafana/dashboards/13388
+OPNSense Sensei Reports
+OPNSense Sensei Threats
+OPNSense Sensei Web
+
+
+
 # OPNSense_Firewall
 ![alt text](https://github.com/b4b857f6ee/opnsense_grafana_dashboard/blob/main/images/OPNSense_Firewall1.PNG?raw=true)
 
