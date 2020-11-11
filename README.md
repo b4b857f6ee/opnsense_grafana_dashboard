@@ -41,7 +41,8 @@ Grafana Dashboard for OPNsense and the Plugin Sensei
 					
 					
 
-Dashboard :
+Dashboard OPNSense :
+	
 	InfluxDB : OPNSense - Firewall
 	ELK : Firewall - Dashboard | Firewall - Suricata | Firewall - Unbound
 
