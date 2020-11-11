@@ -1,4 +1,4 @@
-# opnsense_grafana_dashboard
+# Grafana Dashboard for OPNSense and Sensei
 Grafana Dashboard for OPNsense and the Plugin Sensei
 
 # Requirement
@@ -53,3 +53,30 @@ Configure Sensei by using external ELK (like the one you have previously install
 					Index name : *
 					Time field name : start_time
 					Version : 7.0+ Or 5.6+(for Internal OPNsense Sensei ELK)
+
+# OPNSense_Firewall
+![alt text](https://github.com/b4b857f6ee/opnsense_grafana_dashboard/blob/main/images/OPNSense_Firewall1.PNG?raw=true)
+
+# OPNSense_Firewall
+![alt text]()
+
+# OPNSense_Firewall
+![alt text]()
+
+# OPNSense_Firewall
+![alt text]()
+
+# OPNSense_Firewall
+![alt text]()
+
+# OPNSense_Firewall
+![alt text]()
+
+# OPNSense_Firewall
+![alt text]()
+
+# OPNSense_Firewall
+![alt text]()
+
+# OPNSense_Firewall
+![alt text]()
