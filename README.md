@@ -66,9 +66,9 @@ Configure Sensei by using external ELK (like the one you have previously install
 - OPNSense Firewall Unbound : https://grafana.com/grafana/dashboards/13385
 - OPNSense Sensei Block : https://grafana.com/grafana/dashboards/13387
 - OPNSense Sensei DNS : https://grafana.com/grafana/dashboards/13388
-- OPNSense Sensei Reports
-- OPNSense Sensei Threats
-- OPNSense Sensei Web
+- OPNSense Sensei Reports : https://grafana.com/grafana/dashboards/13390
+- OPNSense Sensei Threats : https://grafana.com/grafana/dashboards/13391
+- OPNSense Sensei Web : https://grafana.com/grafana/dashboards/13392
 
 
 
