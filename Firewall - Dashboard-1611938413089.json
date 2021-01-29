@@ -20,7 +20,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "7.2.1"
+      "version": "7.3.7"
     },
     {
       "type": "panel",
@@ -74,7 +74,7 @@
       "type": "panel",
       "id": "text",
       "name": "Text",
-      "version": "7.1.0"
+      "version": ""
     }
   ],
   "annotations": {
@@ -94,7 +94,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1605083590690,
+  "iteration": 1611938405885,
   "links": [],
   "panels": [
     {
@@ -144,7 +144,7 @@
         },
         "textMode": "value"
       },
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.3.7",
       "targets": [
         {
           "alias": "",
@@ -174,7 +174,7 @@
               "type": "count"
             }
           ],
-          "query": "pfelk-firewall* AND event.action:pass",
+          "query": "event.action:pass",
           "refId": "A",
           "timeField": "@timestamp"
         }
@@ -204,7 +204,7 @@
         "content": "<img src=\"https://opnsense.org/wp-content/themes/OPNsense/assets/img/xopnsense.png.pagespeed.ic.l-2rAT7LtW.png\" >\n         ",
         "mode": "html"
       },
-      "pluginVersion": "7.1.0",
+      "pluginVersion": "7.3.7",
       "targets": [
         {
           "groupBy": [
@@ -295,7 +295,7 @@
         },
         "textMode": "value"
       },
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.3.7",
       "targets": [
         {
           "alias": "",
@@ -325,7 +325,7 @@
               "type": "count"
             }
           ],
-          "query": "pfelk-firewall* AND event.action:block",
+          "query": "event.action:block",
           "refId": "A",
           "timeField": "@timestamp"
         }
@@ -423,7 +423,7 @@
               "type": "count"
             }
           ],
-          "query": "pfelk-firewall*",
+          "query": "",
           "refId": "A",
           "timeField": "@timestamp"
         }
@@ -524,7 +524,7 @@
               "type": "count"
             }
           ],
-          "query": "pfelk-firewall*",
+          "query": "",
           "refId": "A",
           "timeField": "@timestamp"
         }
@@ -595,7 +595,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.3.7",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -642,7 +642,7 @@
               "type": "count"
             }
           ],
-          "query": "pfelk-firewall*",
+          "query": "",
           "refId": "A",
           "timeField": "@timestamp"
         }
@@ -793,7 +793,7 @@
               "type": "count"
             }
           ],
-          "query": "pfelk-firewall-*",
+          "query": "",
           "refId": "A",
           "timeField": "@timestamp"
         }
@@ -888,7 +888,7 @@
               "type": "count"
             }
           ],
-          "query": "pfelk-firewall*",
+          "query": "",
           "refId": "A",
           "timeField": "@timestamp"
         }
@@ -982,7 +982,7 @@
               "type": "count"
             }
           ],
-          "query": "pfelk-firewall*",
+          "query": "",
           "refId": "A",
           "timeField": "@timestamp"
         }
@@ -1082,7 +1082,7 @@
               "type": "count"
             }
           ],
-          "query": "pfelk-firewall-*",
+          "query": "",
           "refId": "A",
           "timeField": "@timestamp"
         }
@@ -1132,7 +1132,7 @@
           }
         ]
       },
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.3.7",
       "targets": [
         {
           "alias": "",
@@ -1167,7 +1167,7 @@
               "type": "logs"
             }
           ],
-          "query": "pfelk-firewall*",
+          "query": "",
           "refId": "A",
           "timeField": "@timestamp"
         }
@@ -1303,7 +1303,7 @@
               "type": "count"
             }
           ],
-          "query": "pfelk-firewall-*",
+          "query": "",
           "refId": "A",
           "timeField": "@timestamp"
         }
@@ -1371,7 +1371,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.3.7",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1418,7 +1418,7 @@
               "type": "count"
             }
           ],
-          "query": "pfelk-firewall*",
+          "query": "",
           "refId": "A",
           "timeField": "@timestamp"
         }
@@ -1523,7 +1523,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.3.7",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1570,7 +1570,7 @@
               "type": "count"
             }
           ],
-          "query": "pfelk-firewall*",
+          "query": "",
           "refId": "A",
           "timeField": "@timestamp"
         }
@@ -1719,7 +1719,7 @@
               "type": "count"
             }
           ],
-          "query": "pfelk-firewall*",
+          "query": "",
           "refId": "A",
           "timeField": "@timestamp"
         }
@@ -1743,6 +1743,7 @@
           "text": "Elasticsearch-Firewall",
           "value": "Elasticsearch-Firewall"
         },
+        "error": null,
         "hide": 0,
         "includeAll": false,
         "label": null,
@@ -1766,5 +1767,5 @@
   "timezone": "",
   "title": "Firewall - Dashboard",
   "uid": "1C3LiRhGz",
-  "version": 44
+  "version": 48
 }

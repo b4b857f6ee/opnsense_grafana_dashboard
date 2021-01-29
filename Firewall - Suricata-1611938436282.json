@@ -26,13 +26,19 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "7.2.1"
+      "version": "7.3.7"
     },
     {
       "type": "panel",
       "id": "grafana-piechart-panel",
       "name": "Pie Chart",
       "version": "1.3.9"
+    },
+    {
+      "type": "panel",
+      "id": "grafana-sankey-panel",
+      "name": "Sankey Diagram Chart",
+      "version": "3.0.0"
     },
     {
       "type": "panel",
@@ -48,12 +54,6 @@
     },
     {
       "type": "panel",
-      "id": "magnesium-wordcloud-panel",
-      "name": "Word cloud",
-      "version": "1.1.3"
-    },
-    {
-      "type": "panel",
       "id": "table",
       "name": "Table",
       "version": ""
@@ -62,7 +62,7 @@
       "type": "panel",
       "id": "text",
       "name": "Text",
-      "version": "7.1.0"
+      "version": ""
     }
   ],
   "annotations": {
@@ -82,7 +82,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1605082029146,
+  "iteration": 1611938428248,
   "links": [],
   "panels": [
     {
@@ -104,7 +104,7 @@
         "content": "<img src=\"https://opnsense.org/wp-content/themes/OPNsense/assets/img/xopnsense.png.pagespeed.ic.l-2rAT7LtW.png\" >\n         ",
         "mode": "html"
       },
-      "pluginVersion": "7.1.0",
+      "pluginVersion": "7.3.7",
       "targets": [
         {
           "groupBy": [
@@ -149,7 +149,13 @@
       "type": "text"
     },
     {
+      "aliasColors": {},
+      "breakPoint": "50%",
       "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
       "datasource": "$Elasticsearch",
       "fieldConfig": {
         "defaults": {
@@ -171,47 +177,35 @@
         },
         "overrides": []
       },
+      "fontSize": "80%",
+      "format": "short",
       "gridPos": {
-        "h": 8,
-        "w": 12,
+        "h": 15,
+        "w": 24,
         "x": 0,
         "y": 2
       },
-      "id": 12,
+      "id": 35,
       "interval": null,
+      "legend": {
+        "show": true,
+        "values": true
+      },
+      "legendType": "Under graph",
       "links": [],
       "maxDataPoints": 3,
-      "options": {
-        "series_index": 0,
-        "wordCloudOptions": {
-          "deterministic": true,
-          "enableTooltip": true,
-          "fontFamily": "arial",
-          "fontSizes": [
-            15,
-            80
-          ],
-          "padding": 1,
-          "rotationAngles": [
-            0,
-            0
-          ],
-          "rotations": 2,
-          "scale": "sqrt",
-          "spiral": "archimedean",
-          "transitionDuration": 800
-        }
-      },
+      "nullPointMode": "connected",
       "pluginVersion": "7.2.1",
+      "strokeWidth": 1,
       "targets": [
         {
           "alias": "",
           "bucketAggs": [
             {
-              "$$hashKey": "object:54",
+              "$$hashKey": "object:379",
               "fake": true,
-              "field": "unbound.client.ip",
-              "id": "4",
+              "field": "suricata.eve.src_ip",
+              "id": "8",
               "settings": {
                 "min_doc_count": "1",
                 "order": "desc",
@@ -219,93 +213,12 @@
                 "size": "10"
               },
               "type": "terms"
-            }
-          ],
-          "hide": false,
-          "metrics": [
+            },
             {
-              "$$hashKey": "object:52",
-              "field": "even",
-              "id": "1",
-              "meta": {},
-              "settings": {},
-              "type": "count"
-            }
-          ],
-          "query": "pfelk-unbound*",
-          "refId": "A",
-          "timeField": "@timestamp"
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Top 10 Client IPs",
-      "type": "magnesium-wordcloud-panel"
-    },
-    {
-      "cacheTimeout": null,
-      "datasource": "$Elasticsearch",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {
-            "align": "left",
-            "filterable": false
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
-          },
-          "unit": "string"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 2
-      },
-      "id": 38,
-      "interval": null,
-      "links": [],
-      "maxDataPoints": 3,
-      "options": {
-        "series_index": 0,
-        "wordCloudOptions": {
-          "deterministic": true,
-          "enableTooltip": true,
-          "fontFamily": "arial",
-          "fontSizes": [
-            15,
-            80
-          ],
-          "padding": 1,
-          "rotationAngles": [
-            0,
-            0
-          ],
-          "rotations": 2,
-          "scale": "sqrt",
-          "spiral": "archimedean",
-          "transitionDuration": 800
-        }
-      },
-      "pluginVersion": "7.2.1",
-      "targets": [
-        {
-          "alias": "",
-          "bucketAggs": [
-            {
-              "$$hashKey": "object:54",
+              "$$hashKey": "object:361",
               "fake": true,
-              "field": "unbound.dns.question.name",
-              "id": "4",
+              "field": "suricata.eve.dest_ip",
+              "id": "7",
               "settings": {
                 "min_doc_count": "1",
                 "order": "desc",
@@ -313,28 +226,39 @@
                 "size": "10"
               },
               "type": "terms"
+            },
+            {
+              "$$hashKey": "object:600",
+              "fake": true,
+              "field": "@timestamp",
+              "id": "3",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": 0,
+                "trimEdges": 0
+              },
+              "type": "date_histogram"
             }
           ],
           "hide": false,
           "metrics": [
             {
-              "$$hashKey": "object:52",
-              "field": "even",
-              "id": "1",
-              "meta": {},
-              "settings": {},
+              "$$hashKey": "object:701",
+              "field": "select field",
+              "id": "4",
               "type": "count"
             }
           ],
-          "query": "pfelk-unbound*",
+          "query": "pfelk-suricata* AND _exists_:suricata.eve.alert.action",
           "refId": "A",
           "timeField": "@timestamp"
         }
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Top 10 URLs",
-      "type": "magnesium-wordcloud-panel"
+      "title": "Flow",
+      "type": "grafana-sankey-panel",
+      "valueName": "current"
     },
     {
       "aliasColors": {},
@@ -366,13 +290,13 @@
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
-        "h": 21,
-        "w": 12,
+        "h": 23,
+        "w": 15,
         "x": 0,
-        "y": 10
+        "y": 17
       },
       "hiddenSeries": false,
-      "id": 42,
+      "id": 46,
       "interval": null,
       "legend": {
         "alignAsTable": true,
@@ -394,7 +318,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.2.1",
+      "pluginVersion": "7.3.7",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -407,28 +331,15 @@
           "alias": "",
           "bucketAggs": [
             {
-              "$$hashKey": "object:713",
+              "$$hashKey": "object:379",
               "fake": true,
-              "field": "unbound.client.ip",
-              "id": "6",
-              "settings": {
-                "min_doc_count": 0,
-                "order": "desc",
-                "orderBy": "_term",
-                "size": "5"
-              },
-              "type": "terms"
-            },
-            {
-              "$$hashKey": "object:710",
-              "fake": true,
-              "field": "unbound.dns.question.name",
-              "id": "5",
+              "field": "suricata.eve.alert.signature",
+              "id": "8",
               "settings": {
                 "min_doc_count": "1",
                 "order": "desc",
                 "orderBy": "_count",
-                "size": "5"
+                "size": "15"
               },
               "type": "terms"
             },
@@ -438,8 +349,8 @@
               "field": "@timestamp",
               "id": "3",
               "settings": {
-                "interval": "30s",
-                "min_doc_count": 0,
+                "interval": "30m",
+                "min_doc_count": "1",
                 "trimEdges": 0
               },
               "type": "date_histogram"
@@ -454,7 +365,7 @@
               "type": "count"
             }
           ],
-          "query": "pfelk-unbound*",
+          "query": "_exists_:suricata.eve.alert.action",
           "refId": "A",
           "timeField": "@timestamp"
         }
@@ -463,7 +374,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Network/Organization Name",
+      "title": "Signatures/Time",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -501,6 +412,219 @@
         "align": false,
         "alignLevel": null
       }
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "datasource": "$Elasticsearch",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "left",
+            "filterable": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "string"
+        },
+        "overrides": []
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 23,
+        "w": 9,
+        "x": 15,
+        "y": 17
+      },
+      "id": 47,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": false
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "nullPointMode": "connected",
+      "pieType": "donut",
+      "pluginVersion": "7.2.1",
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "$$hashKey": "object:121",
+              "fake": true,
+              "field": "suricata.eve.alert.category",
+              "id": "9",
+              "settings": {
+                "min_doc_count": 0,
+                "order": "desc",
+                "orderBy": "_term",
+                "size": "10"
+              },
+              "type": "terms"
+            },
+            {
+              "$$hashKey": "object:379",
+              "fake": true,
+              "field": "suricata.eve.alert.signature",
+              "id": "8",
+              "settings": {
+                "min_doc_count": "1",
+                "order": "desc",
+                "orderBy": "_count",
+                "size": "15"
+              },
+              "type": "terms"
+            },
+            {
+              "$$hashKey": "object:600",
+              "fake": true,
+              "field": "@timestamp",
+              "id": "3",
+              "settings": {
+                "interval": "30m",
+                "min_doc_count": "1",
+                "trimEdges": 0
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "hide": false,
+          "metrics": [
+            {
+              "$$hashKey": "object:701",
+              "field": "select field",
+              "id": "4",
+              "type": "count"
+            }
+          ],
+          "query": "_exists_:suricata.eve.alert.action",
+          "refId": "A",
+          "timeField": "@timestamp"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Categories-Signatures",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "aliasColors": {},
+      "breakPoint": "50%",
+      "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
+      "datasource": "$Elasticsearch",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "left",
+            "filterable": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "string"
+        },
+        "overrides": []
+      },
+      "fontSize": "80%",
+      "format": "short",
+      "gridPos": {
+        "h": 14,
+        "w": 6,
+        "x": 0,
+        "y": 40
+      },
+      "id": 48,
+      "interval": null,
+      "legend": {
+        "show": true,
+        "values": false
+      },
+      "legendType": "Under graph",
+      "links": [],
+      "maxDataPoints": 3,
+      "nullPointMode": "connected",
+      "pieType": "donut",
+      "pluginVersion": "7.2.1",
+      "strokeWidth": 1,
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "$$hashKey": "object:121",
+              "fake": true,
+              "field": "suricata.eve.in_iface",
+              "id": "9",
+              "settings": {
+                "min_doc_count": 0,
+                "order": "desc",
+                "orderBy": "_term",
+                "size": "10"
+              },
+              "type": "terms"
+            },
+            {
+              "$$hashKey": "object:600",
+              "fake": true,
+              "field": "@timestamp",
+              "id": "3",
+              "settings": {
+                "interval": "30m",
+                "min_doc_count": "1",
+                "trimEdges": 0
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "hide": false,
+          "metrics": [
+            {
+              "$$hashKey": "object:701",
+              "field": "select field",
+              "id": "4",
+              "type": "count"
+            }
+          ],
+          "query": "_exists_:suricata.eve.alert.action",
+          "refId": "A",
+          "timeField": "@timestamp"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Interface",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
     },
     {
       "cacheTimeout": null,
@@ -541,13 +665,13 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 21,
+        "h": 14,
         "w": 12,
-        "x": 12,
-        "y": 10
+        "x": 6,
+        "y": 40
       },
       "highlightCards": true,
-      "id": 43,
+      "id": 50,
       "interval": null,
       "legend": {
         "show": true
@@ -568,7 +692,7 @@
             {
               "$$hashKey": "object:713",
               "fake": true,
-              "field": "unbound.client.ip",
+              "field": "suricata.eve.alert.category",
               "id": "6",
               "settings": {
                 "min_doc_count": "1",
@@ -600,14 +724,14 @@
               "type": "count"
             }
           ],
-          "query": "pfelk-unbound*",
+          "query": "_exists_:suricata.eve.alert.action",
           "refId": "A",
           "timeField": "@timestamp"
         }
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Network/Organization Name",
+      "title": "Category-Heat Map",
       "tooltip": {
         "freezeOnClick": true,
         "items": [],
@@ -626,121 +750,6 @@
         "show": true
       },
       "yAxisSort": "metrics"
-    },
-    {
-      "datasource": "$Elasticsearch",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {
-            "align": null,
-            "displayMode": "color-text",
-            "filterable": false
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "percentage",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
-          },
-          "unit": "none"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 14,
-        "w": 18,
-        "x": 0,
-        "y": 31
-      },
-      "id": 45,
-      "options": {
-        "showHeader": true,
-        "sortBy": [
-          {
-            "desc": false,
-            "displayName": "alert.category"
-          }
-        ]
-      },
-      "pluginVersion": "7.2.1",
-      "targets": [
-        {
-          "alias": "",
-          "bucketAggs": [
-            {
-              "$$hashKey": "object:7864",
-              "field": "@timestamp",
-              "id": "2",
-              "settings": {
-                "interval": "auto",
-                "min_doc_count": 0,
-                "trimEdges": 0
-              },
-              "type": "date_histogram"
-            }
-          ],
-          "hide": false,
-          "metrics": [
-            {
-              "$$hashKey": "object:7862",
-              "field": "select metric",
-              "id": "1",
-              "meta": {},
-              "pipelineAgg": "select metric",
-              "pipelineVariables": [
-                {
-                  "name": "var1",
-                  "pipelineAgg": "select metric"
-                }
-              ],
-              "settings": {},
-              "type": "logs"
-            }
-          ],
-          "query": "pfelk-unbound*",
-          "refId": "A",
-          "timeField": "@timestamp"
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Discover",
-      "transformations": [
-        {
-          "id": "filterFieldsByName",
-          "options": {
-            "include": {
-              "names": [
-                "@timestamp",
-                "unbound.log.level",
-                "unbound.client.ip",
-                "unbound.dns.question.class",
-                "unbound.dns.answers.type",
-                "unbound.dns.question.name"
-              ]
-            }
-          }
-        },
-        {
-          "id": "organize",
-          "options": {
-            "excludeByName": {},
-            "indexByName": {
-              "@timestamp": 0,
-              "unbound.client.ip": 2,
-              "unbound.dns.answers.type": 4,
-              "unbound.dns.question.class": 3,
-              "unbound.log.level": 1
-            },
-            "renameByName": {}
-          }
-        }
-      ],
-      "type": "table"
     },
     {
       "aliasColors": {},
@@ -777,12 +786,11 @@
         "h": 14,
         "w": 6,
         "x": 18,
-        "y": 31
+        "y": 40
       },
-      "id": 32,
+      "id": 51,
       "interval": null,
       "legend": {
-        "percentage": false,
         "show": true,
         "values": false
       },
@@ -798,10 +806,10 @@
           "alias": "",
           "bucketAggs": [
             {
-              "$$hashKey": "object:862",
+              "$$hashKey": "object:531",
               "fake": true,
-              "field": "unbound.dns.answers.type",
-              "id": "6",
+              "field": "suricata.eve.alert.metadata.performance_impact",
+              "id": "10",
               "settings": {
                 "min_doc_count": "1",
                 "order": "desc",
@@ -811,10 +819,94 @@
               "type": "terms"
             },
             {
-              "$$hashKey": "object:710",
+              "$$hashKey": "object:121",
+              "fake": true,
+              "field": "suricata.eve.alert.metadata.signature_severity",
+              "id": "9",
+              "settings": {
+                "min_doc_count": "1",
+                "order": "desc",
+                "orderBy": "_count",
+                "size": "10"
+              },
+              "type": "terms"
+            },
+            {
+              "$$hashKey": "object:600",
               "fake": true,
               "field": "@timestamp",
-              "id": "5",
+              "id": "3",
+              "settings": {
+                "interval": "30m",
+                "min_doc_count": "1",
+                "trimEdges": 0
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "hide": false,
+          "metrics": [
+            {
+              "$$hashKey": "object:701",
+              "field": "select field",
+              "id": "4",
+              "type": "count"
+            }
+          ],
+          "query": "_exists_:suricata.eve.alert.action",
+          "refId": "A",
+          "timeField": "@timestamp"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": " Impact-Severity",
+      "type": "grafana-piechart-panel",
+      "valueName": "current"
+    },
+    {
+      "datasource": "$Elasticsearch",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": null,
+            "displayMode": "color-text",
+            "filterable": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 15,
+        "w": 24,
+        "x": 0,
+        "y": 54
+      },
+      "id": 45,
+      "options": {
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "7.3.7",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [
+            {
+              "$$hashKey": "object:7864",
+              "field": "@timestamp",
+              "id": "2",
               "settings": {
                 "interval": "auto",
                 "min_doc_count": 0,
@@ -826,175 +918,68 @@
           "hide": false,
           "metrics": [
             {
-              "$$hashKey": "object:701",
-              "field": "select field",
-              "id": "4",
-              "type": "count"
+              "$$hashKey": "object:7862",
+              "field": "select metric",
+              "id": "1",
+              "meta": {},
+              "pipelineAgg": "select metric",
+              "pipelineVariables": [
+                {
+                  "name": "var1",
+                  "pipelineAgg": "select metric"
+                }
+              ],
+              "settings": {},
+              "type": "logs"
             }
           ],
-          "query": "pfelk-unbound*",
+          "query": "_exists_:suricata.eve.alert.action",
           "refId": "A",
           "timeField": "@timestamp"
         }
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Answer Type",
-      "type": "grafana-piechart-panel",
-      "valueName": "current"
-    },
-    {
-      "aliasColors": {},
-      "bars": true,
-      "cacheTimeout": null,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "$Elasticsearch",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {
-            "align": "left",
-            "filterable": false
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
-          },
-          "unit": "string"
-        },
-        "overrides": []
-      },
-      "fill": 1,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 15,
-        "w": 24,
-        "x": 0,
-        "y": 45
-      },
-      "hiddenSeries": false,
-      "id": 35,
-      "interval": null,
-      "legend": {
-        "alignAsTable": false,
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "rightSide": true,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": false,
-      "linewidth": 1,
-      "links": [],
-      "maxDataPoints": 3,
-      "nullPointMode": "null",
-      "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "7.2.1",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": true,
-      "steppedLine": false,
-      "targets": [
+      "title": "Discover",
+      "transformations": [
         {
-          "alias": "",
-          "bucketAggs": [
-            {
-              "$$hashKey": "object:713",
-              "fake": true,
-              "field": "unbound.client.ip",
-              "id": "6",
-              "settings": {
-                "min_doc_count": "1",
-                "order": "desc",
-                "orderBy": "_term",
-                "size": "15"
-              },
-              "type": "terms"
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "names": [
+                "@timestamp",
+                "suricata.eve.in_iface",
+                "suricata.eve.alert.action",
+                "suricata.eve.alert.category",
+                "suricata.eve.alert.signature",
+                "suricata.eve.dest_ip",
+                "suricata.eve.dest_port",
+                "suricata.eve.src_ip",
+                "suricata.eve.src_port"
+              ]
+            }
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "indexByName": {
+              "@timestamp": 0,
+              "suricata.eve.alert.action": 2,
+              "suricata.eve.alert.category": 3,
+              "suricata.eve.alert.signature": 4,
+              "suricata.eve.dest_ip": 5,
+              "suricata.eve.dest_port": 6,
+              "suricata.eve.in_iface": 1,
+              "suricata.eve.src_ip": 7,
+              "suricata.eve.src_port": 8
             },
-            {
-              "$$hashKey": "object:600",
-              "fake": true,
-              "field": "@timestamp",
-              "id": "3",
-              "settings": {
-                "interval": "30s",
-                "min_doc_count": 0,
-                "trimEdges": 0
-              },
-              "type": "date_histogram"
-            }
-          ],
-          "hide": false,
-          "metrics": [
-            {
-              "$$hashKey": "object:701",
-              "field": "select field",
-              "id": "4",
-              "type": "count"
-            }
-          ],
-          "query": "pfelk-unbound*",
-          "refId": "A",
-          "timeField": "@timestamp"
+            "renameByName": {}
+          }
         }
       ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Client IP/Time",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:490",
-          "format": "string",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "$$hashKey": "object:491",
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
+      "type": "table"
     }
   ],
   "refresh": false,
@@ -1006,9 +991,10 @@
       {
         "current": {
           "selected": false,
-          "text": "Elasticsearch-unbound",
-          "value": "Elasticsearch-unbound"
+          "text": "Elasticsearch-Suricata",
+          "value": "Elasticsearch-Suricata"
         },
+        "error": null,
         "hide": 0,
         "includeAll": false,
         "label": null,
@@ -1025,12 +1011,12 @@
     ]
   },
   "time": {
-    "from": "now-15m",
+    "from": "now-24h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
-  "title": "Firewall - Unbound",
-  "uid": "TzwXEihMk",
-  "version": 11
+  "title": "Firewall - Suricata",
+  "uid": "lAD0wVhGk",
+  "version": 15
 }
