@@ -7,6 +7,13 @@ Grafana Dashboard for OPNsense and the Plugin Sensei
 - Telegraf configuration for OPNsense
 - Grafana and InfluxDB
 
+# Grafana Plugins
+- magnesium-wordcloud-panel
+- flant-statusmap-panel
+- grafana-piechart-panel
+- grafana-worldmap-panel
+- grafana-sankey-panel (https://github.com/kumaravel29/grafana-sankey-panel)
+
 # OPNsense configuration
 
 - ELK logs, configure the ELK logs by following this : https://github.com/3ilson/pfelk
